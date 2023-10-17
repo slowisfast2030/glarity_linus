@@ -8,6 +8,7 @@ export class OpenAIProvider implements Provider {
     this.model = model
   }
 
+  // 模型：text-davinvi-003
   private buildPrompt(prompt: string): string {
     if (this.model.startsWith('text-chat-davinci')) {
       return `Respond conversationally.<|im_end|>\n\nUser: ${prompt}<|im_sep|>\nChatGPT:`
@@ -15,6 +16,7 @@ export class OpenAIProvider implements Provider {
     return prompt
   }
 
+  // 模型：gpt-3.5-turbo
   private buildMessages(prompt: string) {
     return [{ role: 'user', content: prompt }]
   }
