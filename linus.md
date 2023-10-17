@@ -13,4 +13,6 @@ npm run build （生成可以压缩的插件代码）
 * build/chromium
 
 
-当修改插件源码后，可以执行npm run
+当修改插件源码后，可以执行npm run build
+
+然后重新加载插件即可
