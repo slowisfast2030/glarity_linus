@@ -42,7 +42,9 @@ export class OpenAIProvider implements Provider {
       url = `https://${apiHost}${apiPath || '/v1/chat/completions'}`
       reqParams = { ...reqParams, ...{ messages: this.buildMessages(params.prompt) } }
     }
+    console.log("---->")
     console.log(reqParams)
+    console.log("---->")
 
     let result = ''
     await fetchSSE(url, {
