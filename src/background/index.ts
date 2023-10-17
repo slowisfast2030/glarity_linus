@@ -4,6 +4,7 @@ import { ChatGPTProvider, getChatGPTAccessToken, sendMessageFeedback } from './p
 import { OpenAIProvider } from './providers/openai'
 import { Provider } from './types'
 import { isFirefox, tabSendMsg } from '@/utils/utils'
+// 这里两次出现了@符号，可以对比下
 
 async function generateAnswers(port: Browser.Runtime.Port, question: string) {
   const providerConfigs = await getProviderConfigs()
