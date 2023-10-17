@@ -2,6 +2,14 @@ import { fetchSSE } from '../fetch-sse'
 import { GenerateAnswerParams, Provider } from '../types'
 import { getProviderConfigs, ProviderType, DEFAULT_MODEL, DEFAULT_API_HOST } from '@/config'
 
+/*
+如何理解这里的@符号？
+
+from chatpgt:
+@/config refers to the config module, which is located in the root 
+directory of the project (or wherever the alias is configured to point).
+*/
+
 export class OpenAIProvider implements Provider {
   // toekn：就是api key
   // model：模型名
