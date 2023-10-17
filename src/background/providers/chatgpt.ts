@@ -3,6 +3,14 @@ import { v4 as uuidv4 } from 'uuid'
 import { fetchSSE } from '../fetch-sse'
 import { GenerateAnswerParams, Provider } from '../types'
 import { BASE_URL } from '@/config'
+/*
+glarity插件有两个AI Provider:
+1.ChatGPT webapp
+2.OpenAI API
+
+这份文件主要针对的是ChatGPT webapp
+可以在这份文件中打印一些信息进行验证
+*/
 
 async function request(token: string, method: string, path: string, data?: unknown) {
   return fetch(`${BASE_URL}/backend-api${path}`, {
