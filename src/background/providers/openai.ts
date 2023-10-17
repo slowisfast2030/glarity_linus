@@ -3,6 +3,8 @@ import { GenerateAnswerParams, Provider } from '../types'
 import { getProviderConfigs, ProviderType, DEFAULT_MODEL, DEFAULT_API_HOST } from '@/config'
 
 export class OpenAIProvider implements Provider {
+  // toekn：就是api key
+  // model：模型名
   constructor(private token: string, private model: string) {
     this.token = token
     this.model = model
