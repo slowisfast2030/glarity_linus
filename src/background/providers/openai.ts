@@ -63,6 +63,8 @@ export class OpenAIProvider implements Provider {
           data = JSON.parse(message)
           const text =
             gptModel === 'text-davinci-003' ? data.choices[0].text : data.choices[0].delta.content
+          
+          console.log(gptModel)
 
           if (text === undefined || text === '<|im_end|>' || text === '<|im_sep|>') {
             return
