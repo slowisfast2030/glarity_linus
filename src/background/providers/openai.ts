@@ -31,6 +31,7 @@ export class OpenAIProvider implements Provider {
     return [{ role: 'user', content: prompt }]
   }
 
+  // 实现接口的generateAnswer方法
   async generateAnswer(params: GenerateAnswerParams) {
     const [config] = await Promise.all([getProviderConfigs()])
 
