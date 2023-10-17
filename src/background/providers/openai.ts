@@ -35,6 +35,7 @@ export class OpenAIProvider implements Provider {
       model: this.model,
       // prompt: this.buildPrompt(params.prompt),
       // messages: this.buildMessages(params.prompt),
+      // 特别需要注意，这里设置了stream参数
       stream: true,
       max_tokens: 800,
       // temperature: 0.5,
@@ -50,6 +51,9 @@ export class OpenAIProvider implements Provider {
     console.log(reqParams)
     console.log("---->")
 
+    // 由于设置了stream参数，可以认为每一次输出一个字
+    // result是所有输出的累加
+    // 每输出一个字都会触发onMessage函数
     let result = ''
     await fetchSSE(url, {
       method: 'POST',
