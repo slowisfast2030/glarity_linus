@@ -1,2 +1,2 @@
 git add *
-git commit -m "all is well"
+git commit -m "step by step"
