@@ -9,13 +9,16 @@ import { isFirefox, tabSendMsg } from '@/utils/utils'
 async function generateAnswers(port: Browser.Runtime.Port, question: string) {
   const providerConfigs = await getProviderConfigs()
 
+  // 确定AI provider
   let provider: Provider
   if (providerConfigs.provider === ProviderType.ChatGPT) {
     const token = await getChatGPTAccessToken()
     provider = new ChatGPTProvider(token)
+    console.log(provider)
   } else if (providerConfigs.provider === ProviderType.GPT3) {
     const { apiKey, model } = providerConfigs.configs[ProviderType.GPT3]!
     provider = new OpenAIProvider(apiKey, model)
+    console.log(provider)
   } else {
     throw new Error(`Unknown provider ${providerConfigs.provider}`)
   }
