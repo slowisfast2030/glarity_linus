@@ -56,9 +56,8 @@ export class OpenAIProvider implements Provider {
       url = `https://${apiHost}${apiPath || '/v1/chat/completions'}`
       reqParams = { ...reqParams, ...{ messages: this.buildMessages(params.prompt) } }
     }
-    console.log("---->")
+    console.log("---reqParams--->")
     console.log(reqParams)
-    console.log("---->")
 
     // 由于设置了stream参数，可以认为每一次输出一个字
     // result是所有输出的累加
@@ -108,6 +107,7 @@ export class OpenAIProvider implements Provider {
       },
     })
 
+    console.log("---result--->")
     console.log(result)
 
     return {}
