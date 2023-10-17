@@ -55,6 +55,7 @@ export async function getChatGPTAccessToken(): Promise<string> {
   return data.accessToken
 }
 
+// 网页端的token是啥？
 export class ChatGPTProvider implements Provider {
   constructor(private token: string) {
     this.token = token
