@@ -1,2 +1,2 @@
 git add *
-git commit -m "step by step"
+git commit -m "build & sell"
