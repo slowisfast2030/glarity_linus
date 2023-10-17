@@ -42,6 +42,7 @@ export class OpenAIProvider implements Provider {
       url = `https://${apiHost}${apiPath || '/v1/chat/completions'}`
       reqParams = { ...reqParams, ...{ messages: this.buildMessages(params.prompt) } }
     }
+    console.log(reqParams)
 
     let result = ''
     await fetchSSE(url, {
@@ -64,9 +65,10 @@ export class OpenAIProvider implements Provider {
           const text =
             gptModel === 'text-davinci-003' ? data.choices[0].text : data.choices[0].delta.content
           
-          console.log(gptModel)
-          console.log(data.choices[0].delta.content)
-          //console.log(data.choices[0].message.content)
+          // 需要注意，这里的请求中有一个重要的参数stream: true
+          // 所以返回的是一个个chat.completion.chunk
+          //console.log(gptModel)
+          //console.log(data.choices[0].delta.content)
 
           if (text === undefined || text === '<|im_end|>' || text === '<|im_sep|>') {
             return
@@ -86,6 +88,9 @@ export class OpenAIProvider implements Provider {
         }
       },
     })
+
+    console.log(result)
+
     return {}
   }
 }
